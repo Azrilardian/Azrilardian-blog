@@ -1,0 +1,189 @@
+---
+title: 'Menulis kode Javascript yang bersih - Variabel'
+date: 2021-08-07
+slug: '/menulis-kode-javascript-yang-bersih'
+---
+
+!['jumbotron picture'](./img/jumbotron.jpg)
+
+“Membuat kode program itu mudah, yang sulit itu membuatnya dapat dibaca dan dikembangkan”. Saya lupa darimana kalimat diatas saya dengar tapi saya rasa kalimat tersebut telah menampar diri saya cukup keras. qqoosjflp.
+
+Setelah berlalu lalang untuk mencari ~~kitab suci~~ tahu bagaimana cara membuat program yang tidak hanya dapat berjalan lancar, tetapi juga dapat dengan mudah dibaca dan dikembangan, akhirnya saya menemukan sebagian kecil ? faktor dari apa saja yang dapat meningkatkan kualitas kode program yang saya buat, terutama dalam bahasa pemrograman yang saya gunakan sehari – hari, Javascript.
+
+Izinkan blog pertama ini saya mulai dengan membagikan pengetahuan saya tersebut, yaitu tentang bagaimana cara kita meningkatkan kualitas kode program untuk dapat dengan mudah dibaca dan dikembangkan, khususnya pada bahasa pemrograman Javascript.
+
+Agar blog ini tidak terlalu panjang, saya akan membaginya menjadi beberapa bagian, dan ini merupakan bagian pertama : [Menulis kode Javascript yang bersih - Variabel]('')
+
+##### 1. Jelas
+
+Walaupun memberi nama variabel itu cukup memakan waktu, percayalah itu akan memudahkan kita di masa yang akan datang 😊
+
+`BAD`
+
+```javascript
+let h; // hours
+```
+
+`GOOD`
+
+```javascript
+let hours;
+```
+
+Jangan ragu – ragu membuat nama variabel yang panjang, karena penamaan nama variabel yang jelas akan sangat membantu kita untuk mengerti kode program di kemudian hari nanti.
+
+##### 2. Mudah Diucapkan
+
+Usahakan juga menggunakan nama variabel yang mudah untuk diucap.
+
+`BAD`
+
+```javascript
+let yyyymmdd = moment().format('YYYY/MM/DD');
+```
+
+`GOOD`
+
+```javascript
+let currentDate = moment().format('YYYY/MM/DD');
+```
+
+Bayangin kalau nama variabel kita `yyyymmdd`, terus ada anggota tim nanyain variabel, jadi kerepotan sendiri kan nyebutnya ?
+
+##### 3. Hindari _God Number_
+
+Angka yang hanya dimengerti tuhan. Waduh gimana tuh.
+
+Tenang itu cuman sanggahan para programmer buat angka yang kurang jelas dari mana asal usulnya.
+
+`BAD`
+
+```javascript
+for (let I = 0; i <= 60; i++) {
+	// do something
+}
+```
+
+`GOOD`
+
+```javascript
+let minutesInHours = 60;
+for (let i = 0; i <= minutesInHours; i++) {
+	// do something
+}
+```
+
+##### 4. Ekplisit (_Avoid Mental Mapping_)
+
+Hindari menerjemahkan kata menjadi kata lain karena alasan kata tersebut sudah umum digunakan. Biasanya ini masih sering terjadi ketika berurusan dengan perulangan.
+
+`BAD`
+
+```javascript
+const fruits = ['Strawberry', 'Apple', 'Orange', 'Watermelon'];
+fruits.map((e) => {
+	doSomeStuff();
+});
+```
+
+`GOOD`
+
+```javascript
+const fruits = ['Strawberry', 'Apple', 'Orange', 'Watermelon'];
+fruits.map((fruit) => {
+	doSomeStuff();
+});
+```
+
+##### 5. Hindari penambahan kata yang tidak perlu
+
+Hindari penamaan kata yang konteksnya sudah jelas.
+Ini sering terjadi ketika memberikan nama pada properti `class` atau `object`.
+
+`BAD`
+
+```javascript
+const Car = {
+	carVendor: 'Honda',
+	carModel: 'Jazz',
+	carColor: 'white',
+};
+
+const paintCar = (car) => {
+	car.carColor = 'Blue';
+};
+```
+
+`GOOD`
+
+```javascript
+const Car = {
+	vendor: 'Honda',
+	model: 'Jazz',
+	color: 'white',
+};
+
+const paintCar = (car) => {
+	car.color = 'Blue';
+};
+```
+
+##### 6. Gunakan CAPITALIZE untuk penamaan variabel global berupa `const`
+
+Ini akan membantu kita untuk dengan cepat membedakan mana tipe data yang berupa konstan ( tidak berubah ) dan yang hidup ( berubah )
+
+`BAD`
+
+```javascript
+let baseUrl = 'https://randomapi/';
+```
+
+`GOOD`
+
+```javascript
+let BASE_URL = 'https://randomapi/';
+```
+
+##### 7. Gunakan tipe data `const` ketika nilai tidak akan pernah berubah
+
+Selain untuk memaksimalkan tipe data yang ada di Javascript, ini juga berguna untuk mempermudah kita ketika membaca kembali kode program karena hanya dengan melihat sekilas saja kita bisa membedakan mana yang merupakan nilai tetap dan yang bukan.
+
+`BAD`
+
+```javascript
+let BASE_URL = 'https://randomapi/';
+```
+
+`GOOD`
+
+```javascript
+const BASE_URL = 'https://randomapi/';
+```
+
+##### 8. Gunakan sanggahan yang tepat untuk nilai boolean
+
+Terkadang sangat membingungkan ketika terdapat nilai `boolean` pada perulangan atau pengkondisian, mungkin salah satu faktornya karena kita tidak secara tepat memberikan nama pada variabel `boolean` tersebut.
+
+Gunakan sanggahan `is` atau `has` untuk memaksimalkan penulisan variabel bertipe `boolean`
+
+`BAD`
+
+```javascript
+if (vehicle) {
+	// do something
+}
+```
+
+`GOOD`
+
+```javascript
+if (isVehicle) {
+	// do something
+}
+```
+
+#### Penutup
+
+Itu tadi bagaimana cara kita untuk dapat meningkatkan kualitas kode yang kita buat, khususnya pada variabel di Javascript. Semoga bisa bermanfaat.
+
+Dan untuk catatan selanjutnya, _will be added soon_ ya.
