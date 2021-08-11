@@ -6,7 +6,13 @@ require(`dotenv`).config({
 
 module.exports = {
 	siteMetadata: {
-		siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+		siteTitleAlt: `Azril ardian blog`,
+      siteHeadline: `Azril ardian blog`,
+      siteUrl: `https://minimal-blog.lekoarts.de`,
+      siteDescription: `Merupakan website blog pribadi untuk memudahkan saya berbagi ilmu dan pengetahuan seputar Front End Developer`,
+      siteLanguage: `en`,
+      siteImage: `/banner.jpg`,
+      author: `Azrilardian`,
 	},
 	plugins: [
 		{
